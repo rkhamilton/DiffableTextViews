@@ -80,6 +80,7 @@ diffableTextViews_textFieldStyle(_:)
 diffableTextViews_textInputAutocapitalization(_:)
 diffableTextViews_tint(_:)
 diffableTextViews_toolbarDoneButton(_:)
+diffableTextViews_inputAccessory(_:)
 ```
 
 # Styles
@@ -98,6 +99,7 @@ A style that binds localized numbers using various formats.
 | :bricks: | Bounds | Clamps values to bounds |
 | :bow_and_arrow: | Precision | Up to 38 digits of precision |
 | :national_park: | Locales | Supports Foundation.Locale |
+| :keyboard:      | Customize | Supports SwiftUI Views as input accessories |
 | :two: | Bilingual | Accepts local and ASCII input |
 
 ### Examples
@@ -134,6 +136,18 @@ struct ContentView: View {
         .environment(\.locale, locale)
         .diffableTextViews_font(.body.monospaced())
         .diffableTextViews_keyboardType(.decimalPad)
+        .diffableTextViews_inputAccessory {
+            HStack {
+                Spacer()
+                Button {
+                    focus = false
+                } label: {
+                    Label("dismiss keyboard", systemImage: "keyboard.chevron.compact.down")
+                        .labelStyle(.iconOnly)
+                }
+                .padding()
+            }
+        }
     }
 }
 ```

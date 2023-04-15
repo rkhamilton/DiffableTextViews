@@ -71,6 +71,26 @@ import UIKit
         self.view.setupToolbarDoneButton(style)
     }
     
+    @inlinable func setupInputAccessory(_ environment: EnvironmentValues) {
+        guard let accessoryView = environment.diffableTextViews_InputAccessory
+        else {
+            view.inputAccessoryView = nil
+            return
+        }
+        
+        accessoryView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Set the intrinsic size of the view, to the constraints of the view.
+        let size = accessoryView.intrinsicContentSize
+        
+        NSLayoutConstraint.activate([
+            accessoryView.widthAnchor.constraint(equalToConstant: size.width),
+            accessoryView.heightAnchor.constraint(equalToConstant: size.height)
+        ])
+        
+        view.inputAccessoryView = accessoryView
+    }
+    
     //=------------------------------------------------------------------------=
     // MARK: Transformations x Update
     //=------------------------------------------------------------------------=

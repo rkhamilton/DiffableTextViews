@@ -85,5 +85,31 @@ struct Example<Style: DiffableTextStyle>: View {
             .padding()
             .background(tertiary)
             .diffableTextViews_font(.body.monospaced())
+            .diffableTextViews_inputAccessory {
+                HStack {
+                    // commented code demonstrates a more complete input accessory
+//                    Button("\(Image(systemName: "chevron.left"))") {
+//                        print("focus on previous element")
+//                    }
+//                    .padding()
+//                    Button("\(Image(systemName: "chevron.right"))") {
+//                        print("focus on next element")
+//                    }
+//                    .padding()
+//                    Spacer()
+//                    Button("clear") {
+//                        print("clear bound value")
+//                    }
+//                    .padding()
+                    Spacer()
+                    Button {
+                        focus = false
+                    } label: {
+                        Label("dismiss keyboard", systemImage: "keyboard.chevron.compact.down")
+                            .labelStyle(.iconOnly)
+                    }
+                    .padding()
+                }
+            }
     }
 }

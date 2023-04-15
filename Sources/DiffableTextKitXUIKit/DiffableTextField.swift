@@ -120,7 +120,8 @@ public struct DiffableTextField<Style: DiffableTextStyle>: UIViewRepresentable {
             //=----------------------------------=
             self.downstream.delegate = self
             self.downstream.setupTextFieldStyle(environment)
-            self.downstream.setupToolbarDoneButton(environment)
+//            self.downstream.setupToolbarDoneButton(environment)
+            self.downstream.setupInputAccessory(environment)
             //=----------------------------------=
             // Synchronize
             //=----------------------------------=
