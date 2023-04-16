@@ -66,6 +66,16 @@ public struct DiffableTextFont {
         Self(descriptor.withDesign(.monospaced)!)
     }
     
+    @inlinable public func monospacedDigit() -> Self {
+        let features = [
+                    [
+                        UIFontDescriptor.FeatureKey.type: kNumberSpacingType,
+                        UIFontDescriptor.FeatureKey.selector: kMonospacedNumbersSelector
+                    ]
+                ]
+        return Self(descriptor.addingAttributes([UIFontDescriptor.AttributeName.featureSettings: features]))
+    }
+    
     @inlinable public func size(_ size: CGFloat) -> Self {
         Self(descriptor.withSize(size))
     }

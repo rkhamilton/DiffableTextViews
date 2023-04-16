@@ -84,7 +84,7 @@ struct Example<Style: DiffableTextStyle>: View {
             .focused($focus)
             .padding()
             .background(tertiary)
-            .diffableTextViews_font(.body.monospaced())
+            .diffableTextViews_font(.body.monospacedDigit())
             .diffableTextViews_inputAccessory {
                 HStack {
                     // commented code demonstrates a more complete input accessory
